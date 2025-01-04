@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\SongController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,3 +19,12 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+Route::get('/songs', [SongController::class, 'index'])->name('songs.index');
+Route::get('/songs/create', [SongController::class, 'create'])->name('songs.create');
+Route::post('/songs', [SongController::class, 'store'])->name('songs.store');
+
+// routes/web.php
+Route::get('/stream/{songId}', 'SongController@stream');
+
+Route::get('/play-test', [SongController::class, 'playTest']);

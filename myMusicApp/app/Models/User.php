@@ -64,4 +64,22 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    // Phương thức kiểm tra xem người dùng có phải là admin không
+    public function isAdmin()
+    {
+        return $this->is_admin;  // Kiểm tra giá trị cột 'is_admin'
+    }
+
+    // Quan hệ 1-n: Một người dùng có nhiều playlist
+    public function playlists()
+    {
+        return $this->hasMany(Playlist::class);
+    }
+
+    // Quan hệ 1-n: Một người dùng có nhiều lịch sử nghe nhạc
+    public function histories()
+    {
+        return $this->hasMany(History::class);
+    }
 }
