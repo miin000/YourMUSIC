@@ -3,8 +3,7 @@
 @section('content')
     <div class="container">
          <h1>Song List</h1>
-
-         <a href="{{ route('songs.create')}}" class="btn btn-primary mb-2">Add music to your music list</a>
+         <a href="{{ route('songs.create')}}" class="btn btn-primary mb-2">Create your playlist</a>
         @if(session('success'))
          <div class="alert alert-success">
              {{session('success')}}
