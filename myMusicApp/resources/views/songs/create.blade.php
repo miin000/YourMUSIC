@@ -1,25 +1,17 @@
-
-<form action="{{ route('songs.store') }}" method="POST" enctype="multipart/form-data">
-    @csrf
-    <div>
-        <label>Title:</label>
-        <input type="text" name="title" required>
-    </div>
-    <div>
-        <label>Artist:</label>
-        <input type="text" name="artist" required>
-    </div>
-    <div>
-        <label>Album:</label>
-        <input type="text" name="album">
-    </div>
-    <div>
-        <label>Genre:</label>
-        <input type="text" name="genre">
-    </div>
-    <div>
-        <label>Song File:</label>
-        <input type="file" name="song_file" accept="audio/mp3" required>
-    </div>
-    <button type="submit">Upload</button>
-</form>
+@extends('layouts.app') 
+@section('content') 
+<div class="container"> 
+    <h1>Create Playlist</h1> 
+    <form action="{{ route('playlists.store') }}" method="POST"> 
+        @csrf 
+        <div class="mb-3"> 
+            <label for="name" class="form-label">Playlist Name</label> 
+            <input type="text" name="name" id="name" class="form-control" required> 
+            @error('name') 
+            <div class="text-danger">{{$message}}</div> 
+            @enderror 
+        </div> 
+        <button type="submit" class="btn btn-primary">Create Playlist</button> 
+    </form> 
+</div> 
+@endsection

@@ -1,11 +1,13 @@
 <?php
 
 use App\Http\Controllers\SongController;
+use App\Http\Controllers\PlaylistController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('dashboard');
 });
 
 Route::get('/dashboard', function () {
@@ -20,11 +22,17 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
+//resource songs path route
+Route::resource('songs',SongController::class);
+
+// Routes for Songs
 Route::get('/songs', [SongController::class, 'index'])->name('songs.index');
 Route::get('/songs/create', [SongController::class, 'create'])->name('songs.create');
 Route::post('/songs', [SongController::class, 'store'])->name('songs.store');
 
-// routes/web.php
-Route::get('/stream/{songId}', 'SongController@stream');
-
 Route::get('/play-test', [SongController::class, 'playTest']);
+
+// Playlist Routes
+Route::resource('playlists',PlaylistController::class);
+Route::post('playlists/{playlist}/songs/{song}',[PlaylistController::class,'addSong'])->name('playlists.addSong');
+Route::delete('playlists/{playlist}/songs/{song}',[PlaylistController::class,'removeSong'])->name('playlists.removeSong');

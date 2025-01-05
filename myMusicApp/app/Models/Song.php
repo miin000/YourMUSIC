@@ -14,7 +14,6 @@ class Song extends Model
         'artist',
         'album',
         'genre',
-        'duration',
         'file_path',
     ];
 
@@ -22,12 +21,6 @@ class Song extends Model
     public function playlists()
     {
         return $this->belongsToMany(Playlist::class, 'playlist_songs');
-    }
-
-    // Quan hệ 1-n: Một bài hát có thể xuất hiện nhiều lần trong lịch sử
-    public function histories()
-    {
-        return $this->hasMany(History::class);
     }
 }
 
