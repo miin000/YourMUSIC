@@ -19,6 +19,8 @@
 </head>
 <body class="font-sans antialiased">
     <div class="min-h-screen bg-gray-100">
+        {{-- @livewire('navigation-menu') --}}
+
         @include('layouts.navigation')
 
         <!-- Page Heading -->
@@ -32,8 +34,18 @@
 
         <!-- Page Content -->
         <main>
-            @yield('content')
+            @if(isset($slot))
+                {{ $slot }}
+            @else
+                @yield('content')
+            @endif
+            {{-- isset($slot): Kiểm tra nếu biến $slot được truyền (Jetstream).
+            Nếu không, sử dụng @yield('content') cho các view truyền thống. --}}
         </main>
     </div>
+
+    @stack('modals')
+
+    @livewireScripts
 </body>
 </html>

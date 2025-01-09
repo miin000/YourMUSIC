@@ -5,9 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Song;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Log;
-
 
 class SongController extends Controller
 {
@@ -31,8 +28,7 @@ class SongController extends Controller
         ]);
 
         $file = $request->file('song_file');
-        $fileName = $file->getClientOriginalName();  // Tên file gốc và thời gian
-        $filePath = $file->storeAs('public/songs', $fileName);
+        $fileName = $file->getClientOriginalName();  // Luu ten file
 
         // Lưu vào database
         $song = Song::create([
@@ -40,7 +36,7 @@ class SongController extends Controller
             'artist' => $request->artist,
             'album' => $request->album,
             'genre' => $request->genre,
-            'file_path' => Storage::url('songs/' . $fileName), // Lưu URL chính xác
+            'file_path' => Storage::url('songs/' . $fileName), // Lưu URL
         ]);
 
         return redirect()->route('songs.index')
@@ -48,55 +44,54 @@ class SongController extends Controller
     }
 
     public function show(Song $song)
-     {
-        return view('songs.play',compact('song'));
-     }
-     public function destroy(Song $song)
-     {
+    {
+        return view('songs.play', compact('song'));
+    }
+    public function destroy(Song $song)
+    {
         Storage::disk('public')->delete($song->file_path);
-         $song->delete();
-         return redirect()->route('songs.index')->with('success','Song Deleted Successfully');
+        $song->delete();
+        return redirect()->route('songs.index')->with('success', 'Song Deleted Successfully');
+    }
 
-     }
 
+    public function edit(Song $song)
+    {
+        return view('songs.edit', compact('song'));
+    }
 
-     public function edit(Song $song)
-     {
-         return view('songs.edit',compact('song'));
-     }
+    public function update(Request $request, Song $song)
+    {
+        $request->validate([
+            'title' => 'required',
+            'artist' => 'required',
+            'album' => 'nullable',
+            'genre' => 'nullable',
+            'file' => 'nullable|file|mimes:mp3,wav,ogg',
 
-     public function update(Request $request, Song $song)
-     {
-         $request->validate([
-             'title' => 'required',
-             'artist' => 'required',
-             'album' => 'nullable',
-             'genre' => 'nullable',
-             'file' => 'nullable|file|mimes:mp3,wav,ogg',
+        ]);
+        if ($request->hasFile('file')) {
+            // Delete the old file if exists
+            Storage::disk('public')->delete($song->file_path);
+            $path = $request->file('file')->store('songs', 'public');
+            $song->update([
+                'title' => $request->title,
+                'artist' => $request->artist,
+                'album' => $request->album,
+                'genre' => $request->genre,
+                'file_path' => $path,
+            ]);
+        } else {
+            $song->update([
+                'title' => $request->title,
+                'artist' => $request->artist,
+                'album' => $request->album,
+                'genre' => $request->genre,
+            ]);
+        }
 
-         ]);
-          if ($request->hasFile('file')) {
-         // Delete the old file if exists
-             Storage::disk('public')->delete($song->file_path);
-             $path = $request->file('file')->store('songs', 'public');
-             $song->update([
-                 'title' => $request->title,
-                 'artist' => $request->artist,
-                 'album' => $request->album,
-                 'genre' => $request->genre,
-                 'file_path' => $path,
-             ]);
-        }else {
-              $song->update([
-                 'title' => $request->title,
-                 'artist' => $request->artist,
-                 'album' => $request->album,
-                 'genre' => $request->genre,
-             ]);
-         }
-
-          return redirect()->route('songs.index')->with('success', 'Song Updated Successfully');
-     }
+        return redirect()->route('songs.index')->with('success', 'Song Updated Successfully');
+    }
 
     //test
     public function playTest()
@@ -111,5 +106,11 @@ class SongController extends Controller
 
         // Trả về file dưới dạng response
         return response()->file($filePath);
+    }
+
+    //view admin
+    public function admin()
+    {
+        return view('songs.admin');
     }
 }

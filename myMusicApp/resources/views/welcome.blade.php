@@ -37,7 +37,7 @@
                                         class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20]"
                                     >
                                         <p style="font-size: 48px; font-weight: bold; background: linear-gradient(to right, #800080, #FFD700, #00FF00, #0000FF); -webkit-background-clip: text; color: transparent;">
-                                            Your <span style="background: linear-gradient(to right, #0000FF, #00FF00, #FFD700, #800080); -webkit-background-clip: text; color: transparent;">MUSIC</span>
+                                            Your<span style="background: linear-gradient(to right, #0000FF, #00FF00, #FFD700, #800080); -webkit-background-clip: text; color: transparent;">MUSIC</span>
                                         </p>
                                     </a>
                                 @else
@@ -45,7 +45,9 @@
                                         href="{{ route('login') }}"
                                         class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20]"
                                     >
+                                        <p style="font-size: 30px; font-weight: bold; background: linear-gradient(to right, #800080, #FFD700, #00FF00); -webkit-background-clip: text; color: transparent;">
                                         Log in
+                                        </p>
                                     </a>
 
                                     @if (Route::has('register'))
@@ -53,7 +55,9 @@
                                             href="{{ route('register') }}"
                                             class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20]"
                                         >
+                                            <p style="font-size: 30px; font-weight: bold; background: linear-gradient(to right, #00FF00, #0000FF, #b10000); -webkit-background-clip: text; color: transparent;">
                                             Register
+                                            </p>
                                         </a>
                                     @endif
                                 @endauth

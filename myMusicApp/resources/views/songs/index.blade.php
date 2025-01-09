@@ -14,17 +14,17 @@
                 <li class="list-group-item d-flex justify-content-between align-items-center">
                     <div class="song-info">
                         <h5 class="mb-0"> {{ $song->title }}</h5>
-                         <p class="mb-0">Artist : {{ $song->artist }}</p>
+                        <p class="mb-0">Artist : {{ $song->artist }}</p>
                         <p class="mb-0">Album: {{ $song->album }}</p>
                         <p class="mb-0">Genre: {{ $song->genre }}</p>
-                     </div>
+                    </div>
                     <div class="d-flex">
                       <a href="{{route('songs.show',$song->id)}}" class="btn btn-primary btn-sm me-2">Play</a>
                      {{-- <a href="{{route('songs.edit',$song->id)}}" class="btn btn-secondary btn-sm me-2">Edit</a> --}}
-                         <form method="post" action="{{ route('songs.destroy', $song->id) }}">
-                             @csrf
-                             @method('DELETE')
-                             {{-- <button type="submit" class="btn btn-danger btn-sm">Delete</button> --}}
+                        <form method="post" action="{{ route('songs.destroy', $song->id) }}">
+                            @csrf
+                            @method('DELETE')
+                            {{-- <button type="submit" class="btn btn-danger btn-sm">Delete</button> --}}
                          </form>
                     </div>
 
