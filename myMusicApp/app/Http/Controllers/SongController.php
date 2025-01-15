@@ -113,22 +113,21 @@ class SongController extends Controller
     {
         return view('songs.admin');
     }
+
     public function next(Song $song)
-{
-    $nextSong = Song::where('id', '>', $song->id)->first();
-    if (!$nextSong) {
-        $nextSong = Song::first(); // Loop back to the first song
+    {
+        $nextSong = Song::where('id', '>', $song->id)->first();
+        if (!$nextSong) {
+            $nextSong = Song::first(); // Loop back to the first song
+        }
+        return redirect()->route('songs.show', $nextSong);
     }
-    return redirect()->route('songs.show', $nextSong);
-}
 
-public function prev(Song $song)
-{
-    $prevSong = Song::where('id', '<', $song->id)->orderBy('id', 'desc')->first();
-    if (!$prevSong) {
-        $prevSong = Song::orderBy('id', 'desc')->first(); // Loop back to the last song
+    public function prev(Song $song)
+    {
+        $prevSong = Song::where('id', '<', $song->id)->orderBy('id', 'desc')->first();
+        if (!$prevSong) {
+            $prevSong = Song::orderBy('id', 'desc')->first(); // Loop back to the last song
+        }
+        return redirect()->route('songs.show', $prevSong);
     }
-    return redirect()->route('songs.show', $prevSong);
-}
-
-}

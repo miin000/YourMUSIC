@@ -20,7 +20,6 @@
             <button type="submit" class="btn btn-primary">Add to Library</button>
         </form> --}}
     </div>
-
     <div class="mt-3">
         <h3 class="mt-3 mb-2">Add to Playlist</h3>
         <div class="row">
