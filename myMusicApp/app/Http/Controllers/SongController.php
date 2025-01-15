@@ -131,3 +131,4 @@ class SongController extends Controller
         }
         return redirect()->route('songs.show', $prevSong);
     }
+}
