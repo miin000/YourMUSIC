@@ -57,9 +57,10 @@
                         <h5 class="card-title">{{ $song->title }}</h5>
                         <div class="text-muted mb-3">
                             <p class="mb-1"><i class="bi bi-person"></i> Artist: {{ $song->artist->name }}</p>
-                            @if($song->album)
+                            {{-- @if($song->album)
                                 <p class="mb-1"><i class="bi bi-disc"></i> Album: {{ $song->album->title }}</p>
-                            @endif
+                            @endif --}}
+                            <p class="mb-1"><i class="bi bi-disc"></i> Album: {{ $song->album ? $song->album->title : 'Không có' }}</p>
                             @if($song->genre)
                                 <p class="mb-1"><i class="bi bi-music-note"></i> Genre: {{ $song->genre }}</p>
                             @endif
