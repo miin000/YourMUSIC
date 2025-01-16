@@ -11,11 +11,21 @@ class Song extends Model
 
     protected $fillable = [
         'title',
-        'artist',
-        'album',
+        'artist_id',
+        'album_id',
         'genre',
         'file_path',
     ];
+
+    public function artist()
+    {
+        return $this->belongsTo(Artist::class);
+    }
+
+    public function album()
+    {
+        return $this->belongsTo(Album::class);
+    }
 
     // Quan hệ n-n: Một bài hát có thể nằm trong nhiều playlist
     public function playlists()
