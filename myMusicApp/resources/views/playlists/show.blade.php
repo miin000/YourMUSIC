@@ -17,7 +17,7 @@
                 @forelse ($playlist->songs as $song)
                     <li class="list-group-item d-flex justify-content-between align-items-center song-item"
                        data-song-id="{{ $song->id }}"
-                       data-song-path="{{ asset($song->file_path) }}">
+                       data-song-path="{{ asset('storage/' . $song->file_path) }}">
                         {{ $song->title }}
                         <form action="{{ route('playlists.removeSong',[$playlist->id,$song->id]) }}" method="POST">
                             @csrf
