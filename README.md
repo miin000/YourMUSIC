@@ -19,7 +19,7 @@
 <h1 align='center'>How to deploy - Local Development</h1>
 Clone the Repository:
 
-    git clone https://github.com/Khanhs3043/ktl.git
+    git clone https://github.com/miin000/YourMUSIC.git
     cd mystory
     
 Install Dependencies:
@@ -50,7 +50,7 @@ Visit the Application:
 
 Open your browser and navigate to http://localhost:8000
 
-<h3>Our product: <a href='https://supreme-system-jjrxpxjw4p793qxvw-8001.app.github.dev'>Link website</a></h3>
+<h3>Our product: <a href=''>Link website</a></h3>
 <h1 align='center'>Some picture about our website</h1>
 <h2>Login, register</h2>
 <div align='center'>
