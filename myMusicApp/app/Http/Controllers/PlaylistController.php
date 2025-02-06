@@ -9,10 +9,18 @@ use Illuminate\Support\Facades\Auth;
 
 class PlaylistController extends Controller
 {
+  // public function index()
+  // {
+  //   $playlists = Playlist::where('user_id', Auth::id())->get();
+  //   return view('playlists.index', compact('playlists'));
+  // }
+
   public function index()
   {
-    $playlists = Playlist::where('user_id', Auth::id())->get();
-    return view('playlists.index', compact('playlists'));
+      // For admins, show all playlists; for regular users, show only their playlists
+      $playlists = Playlist::where('user_id', Auth::id())->withCount('songs')->get();
+
+      return view('playlists.index', compact('playlists'));
   }
 
   public function create()
@@ -52,10 +60,22 @@ class PlaylistController extends Controller
     return redirect()->route('playlists.index')->with('success', 'Playlist Updated Successfully');
   }
 
+  // public function addSong(Playlist $playlist, Song $song)
+  // {
+  //   $playlist->songs()->attach($song->id);
+  //   return redirect()->back()->with('success', 'Song added to playlist');
+  // }
+
   public function addSong(Playlist $playlist, Song $song)
   {
-    $playlist->songs()->attach($song->id);
-    return redirect()->back()->with('success', 'Song added to playlist');
+      // Kiểm tra nếu bài hát đã tồn tại trong playlist
+      if ($playlist->songs()->where('song_id', $song->id)->exists()) {
+          return redirect()->back()->with('error', 'Bài hát này đã có trong playlist!');
+      }
+
+      // Nếu chưa tồn tại, thêm vào playlist
+      $playlist->songs()->attach($song->id);
+      return redirect()->back()->with('success', 'Bài hát đã được thêm vào playlist!');
   }
 
   public function removeSong(Playlist $playlist, Song $song)

@@ -87,7 +87,7 @@
             </div>
             <div class="card-body">
                 <div class="row">
-                    @forelse(Auth::user()->playlists as $playlist)
+                    {{-- @forelse(Auth::user()->playlists as $playlist)
                         <div class="col-md-4 mb-3">
                             <div class="card h-100">
                                 <div class="card-body">
@@ -108,8 +108,32 @@
                         <div class="col-12">
                             <p class="text-muted">You don't have any playlists yet.</p>
                         </div>
-                    @endforelse
-
+                    @endforelse --}}
+                    @forelse(Auth::user()->playlists as $playlist)
+                        <div class="col-md-4 mb-3">
+                            <a href="{{ route('playlists.show', $playlist->id) }}" class="text-decoration-none">
+                                <div class="card h-100">
+                                    <div class="card-body">
+                                        <h5 class="card-title">{{ $playlist->name }}</h5>
+                                        <p class="card-text small text-muted">
+                                            {{ $playlist->songs->count() }} songs
+                                        </p>
+                                        <form action="{{ route('playlists.addSong', [$playlist->id, $song->id]) }}" method="POST">
+                                            @csrf
+                                            <button type="submit" class="btn btn-primary btn-sm w-100">
+                                                Add to this playlist
+                                            </button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </a>
+                            
+                        </div>
+                    @empty
+                        <div class="col-12">
+                            <p class="text-muted">You don't have any playlists yet.</p>
+                        </div>
+                    @endforelse              
                     <div class="col-md-4 mb-3">
                         <div class="card h-100">
                             <div class="card-body d-flex align-items-center justify-content-center">
@@ -124,6 +148,39 @@
         </div>
     @endauth
 </div>
+
+<style>
+    /* Hiệu ứng hover cho toàn bộ card */
+    .card a {
+        display: block;
+        text-decoration: none;
+        position: relative; /* Để áp dụng hiệu ứng ::after */
+        transition: transform 0.3s ease-in-out; /* Thêm hiệu ứng chuyển động */
+    }
+
+    /* Hiệu ứng hover */
+    .card a:hover {
+        transform: scale(1.05); /* Phóng to card một chút khi hover */
+    }
+
+    /* Thêm hiệu ứng ::after */
+    .card a::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.1); /* Màu mờ mờ, tùy chỉnh */
+        opacity: 0; /* Mặc định không hiển thị */
+        transition: opacity 0.3s ease-in-out;
+    }
+
+    /* Khi hover, hiển thị hiệu ứng */
+    .card a:hover::after {
+        opacity: 1; /* Hiển thị hiệu ứng khi hover */
+    }
+</style>
 
 @push('scripts')
 <script>
@@ -143,4 +200,10 @@
     });
 </script>
 @endpush
+
+@if(session('error'))
+    <div class="alert alert-danger">
+        {{ session('error') }}
+    </div>
+@endif
 @endsection
