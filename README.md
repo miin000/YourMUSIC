@@ -1,11 +1,10 @@
 # YourMUSIC
-<img src="">
-<h1>About us</h1>
+<img src="https://github.com/miin000/YourMUSIC/blob/main/images/intro.png">
+<h1>About me</h1>
 <ul>
     <a href = 'https://github.com/miin000' ><li>PHẠM QUANG MINH - 23010489</li></a>
 </ul>
-<p>We're all from PHENIKAA UNIVERSITY</p>
-<h1>About our project</h1>
+<h1>About my project</h1>
 <p>This is a personal information management website that aims to provide users with a flexible and convenient platform to organize and manage daily personal activities. <br> The website allows users to register and create personal profiles, similar to a blog, where they can share and update information about themselves.</p>
 <p>Detailed project documentation is <a href='https://docs.google.com/document/'>here</a></p>
 <p>The API documentation is <a href='https://github.com/Khanhs3043/ktl/wiki/API-Documentation'>here</a></p>
