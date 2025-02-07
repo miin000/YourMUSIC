@@ -5,7 +5,8 @@
     <a href = 'https://github.com/miin000' ><li>PHẠM QUANG MINH - 23010489</li></a>
 </ul>
 <h1>About my project</h1>
-<p>This is a personal information management website that aims to provide users with a flexible and convenient platform to organize and manage daily personal activities. <br> The website allows users to register and create personal profiles, similar to a blog, where they can share and update information about themselves.</p>
+<p>This is a music website that provides users with a flexible and convenient platform to listen to music and create personal playlists.
+Users can register an account, create a personal profile, and customize their playlists according to their preferences. The website also supports sharing and updating information about favorite songs, helping users connect with the music-loving community.</p>
 <p>Detailed project documentation is <a href='https://docs.google.com/document/'>here</a></p>
 <p>The API documentation is <a href='https://github.com/Khanhs3043/ktl/wiki/API-Documentation'>here</a></p>
 <h2>Main functions include:</h2>
