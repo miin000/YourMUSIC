@@ -59,11 +59,6 @@ Open your browser and navigate to http://localhost:8000
     <img src='https://github.com/miin000/YourMUSIC/blob/main/images/register.png'>
 </div>
 
-<h2>Intro</h2>
-<div align='center' >
-    <img src='https://github.com/miin000/YourMUSIC/blob/main/images/intro.png'>
-</div>
-<hr>
 <h2>Home page</h2>
 <div align='center' >
     <img src='https://github.com/miin000/YourMUSIC/blob/main/images/home.png'>
