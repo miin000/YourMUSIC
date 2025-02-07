@@ -1,88 +1,6 @@
-{{-- <x-app-layout>
-    <x-slot name="header">
-         <p style="font-size: 48px; font-weight: bold; background: linear-gradient(to right, #800080, #FFD700, #00FF00, #0000FF); -webkit-background-clip: text; color: transparent;">
-             Your<span style="background: linear-gradient(to right, #0000FF, #00FF00, #FFD700, #800080); -webkit-background-clip: text; color: transparent;">MUSIC</span>
-         </p>
-    </x-slot>
-
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 bg-white border-b border-gray-200">
-                   <h2 class="text-2xl font-bold mb-4">Artists</h2>
-                   <div class="artist-carousel">
-                        <div class="artist-container">
-                            @foreach($artists as $artist)
-                                 <div class="artist-card">
-                                    <div class="artist-image">
-                                        <img src="https://placekitten.com/200/200" alt="{{$artist->name}}" class="rounded-full">
-                                     </div>
-                                     <div class="artist-name">
-                                          <p class="text-center mt-2 font-semibold">{{$artist->name}}</p>
-                                     </div>
-
-                                </div>
-                            @endforeach
-                        </div>
-                    </div>
-
-                     <h2 class="text-2xl font-bold mb-4 mt-8">Albums</h2>
-                     <div class="album-carousel">
-                        <div class="album-container">
-                             @foreach($albums as $album)
-                                 <div class="album-card">
-                                    <div class="album-image">
-                                        <img src="https://placekitten.com/200/200" alt="{{$album->name}}" class="rounded">
-                                     </div>
-                                      <div class="album-name">
-                                          <p class="text-center mt-2 font-semibold">{{$album->name}}</p>
-                                     </div>
-                                </div>
-                             @endforeach
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</x-app-layout>
-
-<style>
-
-.artist-carousel, .album-carousel {
-  overflow-x: auto;
-  white-space: nowrap;
-    padding-bottom: 20px;
-
-}
-.artist-container, .album-container {
-  display: inline-flex;
-}
-
-
-.artist-card, .album-card {
-    margin-right: 20px;
-   text-align: center;
-    min-width: 150px; /* Adjust as needed */
-    max-width: 200px;
-}
-.artist-image img , .album-image img {
-   width: 150px;
-   height:150px;
-   object-fit: cover;
-    border-radius: 10px;
-}
-/* Add these styles for the sliding animation */
-.artist-carousel, .album-carousel {
-    scroll-behavior: smooth;
-}
-</style> --}}
 
 <x-app-layout>
     <x-slot name="header">
-        {{-- <p class="text-4xl font-bold bg-gradient-to-r from-purple-600 via-yellow-400 to-blue-500 text-transparent bg-clip-text">
-            Your<span class="bg-gradient-to-r from-blue-500 via-yellow-400 to-purple-600 text-transparent bg-clip-text">MUSIC</span>
-        </p> --}}
         <p style="font-size: 48px; font-weight: bold; background: linear-gradient(to right, #800080, #FFD700, #00FF00, #0000FF); -webkit-background-clip: text; color: transparent;">
             Your<span style="background: linear-gradient(to right, #0000FF, #00FF00, #FFD700, #800080); -webkit-background-clip: text; color: transparent;">MUSIC</span>
         </p>
@@ -191,7 +109,7 @@
 }
 
 .artist-carousel::-webkit-scrollbar, .album-carousel::-webkit-scrollbar {
-    display: none; /* Chrome, Safari, Opera */
+    display: none;
 }
 
 .artist-container, .album-container {
