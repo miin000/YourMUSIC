@@ -54,28 +54,34 @@ Open your browser and navigate to http://localhost:8000
 <h1 align='center'>Some picture about our website</h1>
 <h2>Login, register</h2>
 <div align='center'>
-    <img src=''>
-    <img src=''>
+    <img src='https://github.com/miin000/YourMUSIC/blob/main/images/loginAndRegister.png'>
+    <img src='https://github.com/miin000/YourMUSIC/blob/main/images/login.png'>
+    <img src='https://github.com/miin000/YourMUSIC/blob/main/images/register.png'>
 </div>
 
+<h2>Intro</h2>
+<div align='center' >
+    <img src='https://github.com/miin000/YourMUSIC/blob/main/images/intro.png'>
+</div>
+<hr>
 <h2>Home page</h2>
 <div align='center' >
-    <img src=''>
-    <img src=''>
+    <img src='https://github.com/miin000/YourMUSIC/blob/main/images/home.png'>
 </div>
 <hr>
-<h2>Search </h2>
+<h2>Songs view</h2>
 <div align='center' >
-    <img src=''>
+    <img src='https://github.com/miin000/YourMUSIC/blob/main/images/songs.png'>
+    <img src='https://github.com/miin000/YourMUSIC/blob/main/images/playSong.png'>
 </div>
 <hr>
-<h2>Task</h2>
+<h2>Library</h2>
 <div align='center' >
-    <img src=''>
-    <img src=''>
+    <img src='https://github.com/miin000/YourMUSIC/blob/main/images/library.png'>
+    <img src='https://github.com/miin000/YourMUSIC/blob/main/images/playlist.png'>
 </div>
 <hr>
-<h2>Group</h2>
+<h2>Profile</h2>
 <div align='center' >
-
+    <img src='https://github.com/miin000/YourMUSIC/blob/main/images/profile.png'>
 </div>
