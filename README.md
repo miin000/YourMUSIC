@@ -16,6 +16,12 @@ Users can register an account, create a personal profile, and customize their pl
      <li>Manage songs</li>
      <li>Manage playlists</li>
 </ul>
+
+<h2>Use Case</h2>
+<div align='center'>
+    <img src='https://github.com/miin000/YourMUSIC/blob/main/images/usecase'>
+</div>
+
 <h1 align='center'>How to deploy - Local Development</h1>
 Clone the Repository:
 
