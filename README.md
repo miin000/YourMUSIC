@@ -26,7 +26,7 @@ Users can register an account, create a personal profile, and customize their pl
 Clone the Repository:
 
     git clone https://github.com/miin000/YourMUSIC.git
-    cd mystory
+    cd myMusicApp
     
 Install Dependencies:
 
